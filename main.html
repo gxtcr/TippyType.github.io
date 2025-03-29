@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TippyType</title>
+    <link rel="icon" href="images/Logo.png" type="image/icon type">
+
+    <!-- Inclusion du fichier css pour le style du jeu -->
+    <link rel="stylesheet" href="style/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jersey+10&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <!-- Inclusion des 3 scripts nécessaires pour faire fonctionner le jeu -->
+    <!-- Attention, l'ordre des fichiers js est important.  -->
+    <script src="scripts/config.js" defer></script>
+    <script src="scripts/popup.js" defer></script>
+    <script src="scripts/script.js" defer></script>
+    <script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <!--<div class="logo">
+            <img src="images/Logo.png" class="logohover">
+        </div> -->
+        <h1>TippyType</h1>
+            <h2>L'application pour écrire plus vite!</h2>
+                <h3>TippyType est une application en ligne pour apprendre à taper plus vite au clavier, banger non? :)</h3>
+    </header>
+
+    <main>
+        <div class = blocJeux>
+        <section class="ChoixListes" id="ChoixListes">
+            <p>Choisissez votre option et tapez la proposition qui s'affiche dans le champs en-dessous. <br>
+                <input type="radio" name="ChoixMotouPhrases" value="Mots" id="Mots"> <label for="Mots">Mots</label>
+                <input type="radio" name="ChoixMotouPhrases" value="Phrases" id="Phrases"> <label for="Phrases">Phrases</label><br>
+            </p>
+        </section>
+        </div>
+
+        <div class="affichageJeux">
+            <section id="AffichageJeux">
+                <div class="ZoneProposition">
+                    
+                </div>
+            </section>
+        </div>
+
+        <div class="userInput-button">
+            <input type="text" name="inputUser" id="inputUser">
+            <button id="btnValiderMot">Valider</button>
+        </div>
+
+        <div class="ZoneScore">
+            Votre score : <span>0</span>
+        </div>
+
+        <div>
+            <button id="btnPartager">Partager</button>
+        </div>
+
+        <div class="logo">
+            <img src="images/Logo.png" class="logohover">
+        </div>
+    </main>
+
+    <div class="PopUpBackground">
+        <div class="PopUp">
+            <button id="btnRetour">Retour</button>
+            <form novalidate>
+                <div>
+                    <label for="Nom">Votre nom : </label>
+                    <input type="text" name="Nom" id="Nom" placeholder="Votre nom">
+                </div>
+
+                <div>
+                    <label for="Email">Destinataire : </label>
+                    <input type="email" name="Email" id="Email" placeholder="adresse@mail.com">
+                </div>
+                <button id="BtnEnvoieMail">Envoyer</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            @CopyRight: Gwenou
+        </p>
+    </footer>
+
+
+
+</body>
+
+</html>
