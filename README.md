@@ -1,1 +1,1 @@
-# AzerType
+# TippyType
