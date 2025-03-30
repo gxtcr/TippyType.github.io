@@ -78,6 +78,16 @@ function lancerJeu() {
     let boutonValider = document.getElementById("btnValiderMot")
     let inputEcriture = document.getElementById("inputUser")
 
+    inputEcriture.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            
+            // Simulate a click on the validation button if the button is not disabled
+            if (!boutonValider.disabled) {
+                boutonValider.click();
+            }
+        }
+    })
     //Set the default radio button to "Mots"
     let radioMots = document.getElementById("Mots")
     if (radioMots) {
