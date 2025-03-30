@@ -11,9 +11,10 @@
 h1,
 h2,
 h3 {
-    color:#ea94ba; 
+    color: white; 
     font-family: "Jersey 10", sans-serif;
     font-weight: 300;
+    text-shadow: 0 0 15px rgba(228, 159, 221, 0.8);
 }
 
 h1 {
@@ -52,7 +53,8 @@ input[type='radio'] {
 }
 
 input {
-    color: #ea94ba;
+    color: #72185e; /* Texte foncé pour contraster */
+    background-color: #ffebf5; /* Fond très clair */
     font-family: "Jersey 10", sans-serif;
     margin: 10px;
     padding: 5px;
@@ -71,7 +73,7 @@ input[type='text']::placeholder {
 
 
 button {
-    color: #ea94ba;
+    color: #72185e;
     font-family: "Jersey 10", sans-serif;
     margin: 10px;
     padding: 5px;
@@ -103,13 +105,14 @@ button {
 
 main {
     border-radius: 15px;
-    background-color: #ea94ba;
+    background-color: #7d1767;
     margin: 2% auto;
     text-align: center;
     height: 80%;
     width: 80%;
     max-width: 800px;
     padding: 20px;
+    box-shadow: 0 0 15px rgba(228, 159, 221, 0.8);
 }
 
 
@@ -122,7 +125,6 @@ header {
 }
 
 .logo {
-    border: 3px solid rgba(234, 148, 186, 0.5);
     border-radius: 30px;
     max-width: 100%; /* S'assurer que le logo ne déborde pas */
     height: auto; /* Maintenir les proportions du logo */
@@ -145,19 +147,19 @@ footer {
     padding: 2%;
     font-family: "Jersey 10", sans-serif;
     color: white;
-    background-color: #ea94ba;
+    background-color: #7d1767;
     margin-top: 150px;
     height: 20px;
-    width: 100%
+    width: 100%;
+    box-shadow: 0 0 15px rgba(228, 159, 221, 0.8);
 }
 
 button:hover {
     cursor: pointer;
-}
-button:hover {
     background-color: white;
     border: none;
-    box-shadow: 5px 5px 10px 3px rgb(212, 159, 195);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    transform: scale(1.05)
 }
 
 /* Space where the word/phrase will be display  */
@@ -172,7 +174,7 @@ button:hover {
     background-color: white;
     font-size: 30px;
     font-weight: 500;
-    color: #ea94ba;
+    color: #72185e;
     font-family: "Jersey 10", sans-serif;
     min-height: 80px;
     word-wrap: break-word;
@@ -188,7 +190,7 @@ button:hover {
     margin: auto;
 }
 
-/* Eléments du formulaire de saisie */
+/* elements for email form*/
 .userInput-button input[type='text'] {
     width: 80%;
     flex-grow: 1;
@@ -250,7 +252,6 @@ button:hover {
     font-family: "Jersey 10", sans-serif;
 }
 
-/* Eléments de formulaire */
 .PopUp input {
     margin-bottom: 10px;
     font-family: "Jersey 10", sans-serif;
@@ -258,11 +259,11 @@ button:hover {
     max-width: 300px;
 }
 
-/* Fond avec etoile*/
+/* Background with stars */
 body {
     position: relative;
-    background-color: #fff6fe;; 
-    overflow-x: hidden; 
+    background: linear-gradient(to bottom, #72185e, #32043c);
+    overflow-x: hidden;
 }
 
 .stars-container {
@@ -270,7 +271,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 200%; 
+    height: 100%;
     z-index: -1;
     background: transparent;
 }
@@ -279,25 +280,72 @@ body {
     position: absolute;
     width: 2px;
     height: 2px;
-    background-color: rgb(210, 132, 185);
+    background-color: #ffbde0; 
+    border-radius: 50%;
 }
 
-/* Différentes tailles d'étoiles */
 .star.small {
-    width: 3px;
-    height: 3px;
+    width: 2px;
+    height: 2px;
+    box-shadow: 0 0 2px 1px rgba(255, 189, 224, 0.4);
 }
 
 .star.medium {
-    width: 6px;
-    height: 6px;
+    width: 3px;
+    height: 3px;
+    box-shadow: 0 0 4px 2px rgba(255, 189, 224, 0.6);
 }
 
 .star.large {
-    width: 9px;
-    height: 9px;
-    background-color: rgb(216, 201, 86);
+    width: 4px;
+    height: 4px;
+    background-color: #ffffff; 
+    box-shadow: 0 0 8px 4px rgba(255, 230, 240, 0.8);
 }
+
+.star-rays {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: transparent;
+}
+
+.star-rays::before, .star-rays::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+}
+
+.star-rays::before {
+    width: 16px;
+    height: 2px;
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.9);
+}
+
+.star-rays::after {
+    width: 2px;
+    height: 16px;
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.9);
+}
+
+/* Animation de scintillement */
+@keyframes twinkle {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+.star.large {
+    animation: twinkle 3s infinite ease-in-out;
+    animation-delay: calc(var(--delay) * 1s);
+}
+
 /** 
  * Responsive
  */
