@@ -126,11 +126,12 @@ header {
 
 .logo {
     border-radius: 30px;
-    max-width: 100%; /* S'assurer que le logo ne déborde pas */
-    height: auto; /* Maintenir les proportions du logo */
-    /*
-    box-shadow: 5px 5px 15px 5px rgb(227, 174, 210);
-    */
+    border: none;
+    margin: 0 auto; 
+    max-width: 150px; 
+    height: auto; 
+    margin: 0 auto; 
+    filter: drop-shadow(0 0 0.75rem rgba(228, 159, 221, 0.8));
 }
 
 .logo img {
