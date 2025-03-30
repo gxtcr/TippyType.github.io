@@ -4,7 +4,9 @@
  * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* added to better adjusted dimension */
 }
+
 
 h1,
 h2,
@@ -45,9 +47,10 @@ p {
 
 /* Mise en forme des formulaires */
 input[type='radio'] {
-    filter: grayscale(1); /* Grayscale passe le bouton en niveau de gris */
+    filter: grayscale(1); /* Make the radio button in gray */
     margin-top: 30px;
 }
+
 input {
     color: #ea94ba;
     font-family: "Jersey 10", sans-serif;
@@ -84,6 +87,7 @@ button {
     justify-content: center;
     align-items: center;
     padding: 2%;
+    width: 100%;
 }
 
 
@@ -93,15 +97,19 @@ button {
     justify-content: space-evenly;
     align-items:center;
     padding: 2%;
+    width: 100%;
 }
 
 
 main {
     border-radius: 15px;
     background-color: #ea94ba;
-    margin: 2% 30%;
+    margin: 2% auto;
     text-align: center;
     height: 80%;
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
 }
 
 
@@ -110,14 +118,22 @@ header {
     flex-direction: column;
     align-items:center;
     padding: 1%;
+    text-align: center;
 }
 
 .logo {
     border: 3px solid rgba(234, 148, 186, 0.5);
     border-radius: 30px;
+    max-width: 100%; /* S'assurer que le logo ne déborde pas */
+    height: auto; /* Maintenir les proportions du logo */
     /*
     box-shadow: 5px 5px 15px 5px rgb(227, 174, 210);
     */
+}
+
+.logo img {
+    max-width: 100%; 
+    height: auto; 
 }
 
 footer {
@@ -132,6 +148,7 @@ footer {
     background-color: #ea94ba;
     margin-top: 150px;
     height: 20px;
+    width: 100%
 }
 
 button:hover {
@@ -143,7 +160,7 @@ button:hover {
     box-shadow: 5px 5px 10px 3px rgb(212, 159, 195);
 }
 
-/* Zone ou sera affiché le texte (mot ou phrase) à afficher */
+/* Space where the word/phrase will be display  */
 .ZoneProposition {
     display: flex;
     align-items: center;
@@ -157,12 +174,16 @@ button:hover {
     font-weight: 500;
     color: #ea94ba;
     font-family: "Jersey 10", sans-serif;
+    min-height: 80px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-/* Zone de saisie */
+/* Input user zone */
 .userInput-button {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     margin: auto;
 }
@@ -170,6 +191,12 @@ button:hover {
 /* Eléments du formulaire de saisie */
 .userInput-button input[type='text'] {
     width: 80%;
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.userInput-button button {
+    min-width: 80px;
 }
 
 
@@ -192,7 +219,8 @@ button:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 400px;
+    max-width: 400px;
+    width: 90%;
     padding: 20px;
     color: white;
     font-size: 17px;
@@ -226,6 +254,8 @@ button:hover {
 .PopUp input {
     margin-bottom: 10px;
     font-family: "Jersey 10", sans-serif;
+    width: 100%;
+    max-width: 300px;
 }
 
 
@@ -234,19 +264,91 @@ button:hover {
  */
 
 
- /* En dessous de 1200 px */
+ /* for any devices with screen under 1200px */
 @media screen and (max-width: 1200px) {
+    h1 {
+        font-size: 400%;
+    }
+    
+    h2 {
+        font-size: 200%;
+    }
+
     main {
-        width: 60%;
-        padding: 30px;
+        width: 90%;
+        padding: 15px;
     }
 }
 
 
-/* En dessous de 800 px */
+/* for tablet*/
 @media screen and (max-width: 800px) {
-    main {
-        width: 90%;
-        padding: 10px;
+    h1 {
+        font-size: 300%;
     }
+
+    h2 {
+        font-size: 180%;
+    }
+    
+    h3 {
+        font-size: 120%;
+    }
+
+    main {
+        width: 95%;
+        padding: 10px;
+        margin: 2% auto;
+    }
+
+    .ZoneProposition {
+        font-size: 24px;
+        padding: 15px;
+    }
+
+    /*for mobiles */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 200%; 
+        margin: 10px 0;
+    }
+    
+    h2 {
+        font-size: 150%;
+    }
+    
+    h3 {
+        font-size: 100%;
+    }
+    
+    p, .ZoneScore {
+        font-size: 120%;
+    }
+    
+    .ZoneProposition {
+        font-size: 20px; 
+        padding: 10px;
+        min-height: 60px; 
+    }
+    
+    .userInput-button {
+        flex-direction: column; /* diplay in column for mobiles*/
+    }
+    
+    .userInput-button input[type='text'] {
+        width: 100%; /* Prend toute la largeur */
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    button, input {
+        font-size: 120%;
+        padding: 8px;
+    }
+    
+    .PopUp {
+        width: 95%;
+        padding: 15px;
+    }
+}
 }
