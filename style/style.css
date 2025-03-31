@@ -52,6 +52,11 @@ input[type='radio'] {
     margin-top: 30px;
 }
 
+input[type='radio']:hover {
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
 input {
     color: #72185e; /* Texte foncé pour contraster */
     background-color: #ffebf5; /* Fond très clair */
@@ -61,14 +66,6 @@ input {
     border: none;
     border-radius: 8px;
     font-size: 140%;
-}
-
-
-/* Demander a chatgpt a quoi ca sert */
-input[type='text']::placeholder {
-    color: #ea94ba;
-    opacity: 50%;
-
 }
 
 
@@ -228,10 +225,11 @@ button:hover {
     color: white;
     font-size: 17px;
     font-weight: 500;
-    background-color:#ea94ba;
+    background-color:#7d1767;;
     font-family: "Jersey 10", sans-serif;
     border-radius: 30px;
     z-index: 1;
+    box-shadow: 0 0 15px rgba(228, 159, 221, 1);
 }
 
 .PopUpBackground.active {
