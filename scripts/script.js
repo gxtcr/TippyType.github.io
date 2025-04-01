@@ -6,21 +6,25 @@ if (typeof window.gameStats === 'undefined') {
     }
 }
 
-// function that displays the final score
+// Function that displays the final score
 function afficherResultat(scoreVal, nombreTotalMots) {
     let spanScore = document.querySelector(".ZoneScore span")
-    let affichageScore = `${scoreVal} / ${nombreTotalMots}`
-    spanScore.innerHTML = affichageScore
+    if (spanScore) {
+        let affichageScore = `${scoreVal} / ${nombreTotalMots}`
+        spanScore.innerHTML = affichageScore
+    }
     
     // Update global stats for the timer to use
     window.gameStats.score = scoreVal
     window.gameStats.wordsAttempted = nombreTotalMots
 }
 
-// function that displays the word or phrase on the screen
+// Function that displays the word or phrase on the screen
 function afficherPropositionMots(motAAfficher) {
     let zoneProposition = document.querySelector(".ZoneProposition")
-    zoneProposition.innerText = motAAfficher
+    if (zoneProposition) {
+        zoneProposition.innerText = motAAfficher
+    }
 }
 
 // Function to share the final score with an email
@@ -29,17 +33,22 @@ function afficherEmail(nom, email, score) {
     location.href = mailto
 }
 
-// Function that creates an error message if this is the case
+// Function that creates an error message
 function afficherMsgErreur(msgErreur) {
     let spanMsgErreur = document.getElementById("erreurMessage")
 
     if (!spanMsgErreur) {
         let parentElement = document.querySelector(".PopUp") 
-        spanMsgErreur = document.createElement("span")
-        spanMsgErreur.id = "erreurMessage"
-        parentElement.append(spanMsgErreur)
+        if (parentElement) {
+            spanMsgErreur = document.createElement("span")
+            spanMsgErreur.id = "erreurMessage"
+            parentElement.append(spanMsgErreur)
+        }
     }
-    spanMsgErreur.innerText = msgErreur
+    
+    if (spanMsgErreur) {
+        spanMsgErreur.innerText = msgErreur
+    }
 }
 
 // Function that checks validity of the name
@@ -61,11 +70,11 @@ function validerEmail(email) {
 function gererFormulaire(scoreEmail) {
     try {
         let baliseNom = document.getElementById("Nom")
-        nom = baliseNom.value
+        let nom = baliseNom.value
         validerNom(nom) 
 
         let baliseEmail = document.getElementById("Email")
-        email = baliseEmail.value
+        let email = baliseEmail.value
         validerEmail(email)
         afficherMsgErreur("")
         afficherEmail(nom, email, scoreEmail)
@@ -128,6 +137,22 @@ function lancerJeu() {
     if (typeof initializeTimer === 'function') {
         initializeTimer(120)
     }
+    
+    // *** NOUVELLE FONCTIONNALITÉ ***
+    // Event listeners pour les boutons radio de difficulté
+    let difficultyRadios = document.querySelectorAll(".ChoixDifficulteContainer input[type='radio']")
+    difficultyRadios.forEach(radio => {
+        radio.addEventListener("change", function() {
+            // Mettre à jour l'affichage du timer immédiatement quand on change de difficulté
+            let difficultyValue = this.value
+            console.log("Difficulté sélectionnée:", difficultyValue, "secondes")
+            
+            // Mettre à jour l'affichage du timer sans démarrer le compte à rebours
+            if (typeof initializeTimer === 'function') {
+                initializeTimer(difficultyValue)
+            }
+        })
+    })
 
     // Handle difficulty validation button
     if (boutonValiderDifficulte) {
