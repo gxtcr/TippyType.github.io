@@ -23,10 +23,11 @@
     <!-- Attention, l'ordre des fichiers js est important.  -->
     <script src="scripts/config.js" defer></script>
     <script src="scripts/popup.js" defer></script>
+    <script src="scripts/timer.js" defer></script>
     <script src="scripts/script.js" defer></script>
     <script src="scripts/main.js" defer></script>
     <script src="scripts/stars.js" defer></script>
-    <script src="scripts/timer.js" defer></script>
+
 </head>
 
 <body>
@@ -43,16 +44,18 @@
                 <input type="radio" name="ChoixMotouPhrases" value="Mots" id="Mots"> <label for="Mots">Mots</label>
                 <input type="radio" name="ChoixMotouPhrases" value="Phrases" id="Phrases"> <label for="Phrases">Phrases</label><br>
             </p>
-            <button id="btnChangerListe">Changer de liste</button>
         </section>
         <br>
-        <div class="ChoixDifficulte">
+        <div class="ChoixDifficulteContainer">
             <p>Choisissez le niveau de difficulte :
                 <br>
                 <input type="radio" name="ChoixDifficulte" value="120" id="Facile"> <label for="Facile">Facile</label>
                 <input type="radio" name="ChoixDifficulte" value="60" id="Normal"> <label for="Normal">Normal</label>
                 <input type="radio" name="ChoixDifficulte" value="30" id="Difficile"> <label for="Difficile">Difficile</label><br>
             </p>
+        </div>
+        <div class="container-btnValiderDifficulte">
+            <button id="btnValiderDifficulte">Valider</button>
         </div>
 
         <div class="timer">
@@ -67,7 +70,6 @@
         <div class="affichageJeux">
             <section id="AffichageJeux">
                 <div class="ZoneProposition">
-                    
                 </div>
             </section>
         </div>
