@@ -70,6 +70,16 @@ function lancerJeu() {
 
     let scoreVal = 0
     let i = 0
+    let dureeJeu= 120
+
+    // default level "Facile"
+    let niveauActuel = "Facile";
+    let radioFacile = document.getElementById("Facile");
+    if (radioFacile) {
+        radioFacile.checked = true;
+    }
+
+
 
     // Get a random word list initially
     let listeProposition = getRandomList(listeMotsGlobale)

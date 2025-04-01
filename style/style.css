@@ -160,6 +160,35 @@ button:hover {
     transform: scale(1.05)
 }
 
+/* Timer Zone */
+
+.timer {
+    margin: 15px auto;
+    width: 90%;
+}
+
+.timer-text {
+    font-family: "Jersey 10", sans-serif;
+    color: white;
+    font-size: 120%;
+    margin-bottom: 5px;
+}
+
+.timer-bar-container {
+    width: 100%;
+    height: 20px;
+    background-color: #32043c;
+    border-radius: 5px;
+}
+
+.timer-bar {
+    height: 100%;
+    width: 100%;
+    background-color: #ffbde0;
+    border-radius: 5px;
+    transition: width 1s linear;
+}
+
 /* Space where the word/phrase will be display  */
 .ZoneProposition {
     display: flex;
